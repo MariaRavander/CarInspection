@@ -1,4 +1,4 @@
-package model;
+package se.kth.iv1350.carInspection.model;
 
 /**
  * This class represents an amount.

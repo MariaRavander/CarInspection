@@ -1,9 +1,9 @@
-package integration;
+package se.kth.iv1350.carInspection.integration;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Amount;
+import se.kth.iv1350.carInspection.model.Amount;
 
 /**
  * Represents an particular control of a vehicle and it's cost.
@@ -12,7 +12,7 @@ public class InspectionChecklist {
 	private String vehiclePart;
 	private int cost;
 	
-	/**
+     /**
      * Creates new instance representing the specified control.
      * 
      * @param vehiclePart The specific vehicle part of this control.

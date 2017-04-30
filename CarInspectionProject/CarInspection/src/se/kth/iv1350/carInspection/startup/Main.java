@@ -1,8 +1,10 @@
-package startup;
+package se.kth.iv1350.carInspection.startup;
 
-import controller.Controller;
-import view.*;
-import integration.*;
+import se.kth.iv1350.carInspection.view.View;
+import se.kth.iv1350.carInspection.integration.DatabaseManager;
+import se.kth.iv1350.carInspection.integration.Printer;
+import se.kth.iv1350.carInspection.integration.CreditCardReader;
+import se.kth.iv1350.carInspection.controller.Controller;
 /**
  * Starts the application.
  */

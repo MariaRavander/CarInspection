@@ -1,6 +1,6 @@
-package model;
+package se.kth.iv1350.carInspection.model;
 
-import integration.InspectionChecklist;
+import se.kth.iv1350.carInspection.integration.InspectionChecklist;
 import java.util.*;
 
 /**

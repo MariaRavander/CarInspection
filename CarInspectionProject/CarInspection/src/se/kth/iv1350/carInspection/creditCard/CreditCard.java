@@ -1,4 +1,4 @@
-package creditCard;
+package se.kth.iv1350.carInspection.creditCard;
 
 /**
  * Represents a credit card.

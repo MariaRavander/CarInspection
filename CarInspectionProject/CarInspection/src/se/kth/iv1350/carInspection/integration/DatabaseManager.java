@@ -1,4 +1,4 @@
-package integration;
+package se.kth.iv1350.carInspection.integration;
 
 import java.util.ArrayList;
 import java.util.List;

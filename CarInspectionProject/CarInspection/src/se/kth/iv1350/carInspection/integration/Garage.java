@@ -1,4 +1,4 @@
-package integration;
+package se.kth.iv1350.carInspection.integration;
 
 /**
  * This is a facade to the hardware of the GARAGE, namely the door and the queue

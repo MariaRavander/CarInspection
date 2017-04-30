@@ -1,10 +1,13 @@
-package controller;
+package se.kth.iv1350.carInspection.controller;
 
-import integration.*;
-import model.*;
+import se.kth.iv1350.carInspection.model.Amount;
+import se.kth.iv1350.carInspection.model.Inspection;
+import se.kth.iv1350.carInspection.integration.DatabaseManager;
+import se.kth.iv1350.carInspection.integration.Printer;
+import se.kth.iv1350.carInspection.integration.Garage;
 
 /**
- * knkn
+ * 
  * This is the application's only controller class.
  * All calls to the model pass through here.
  *

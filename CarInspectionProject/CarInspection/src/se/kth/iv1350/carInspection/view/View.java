@@ -1,8 +1,7 @@
-package view;
+package se.kth.iv1350.carInspection.view;
 
-import model.Amount;
-import controller.Controller;
-import integration.*;
+import se.kth.iv1350.carInspection.model.Amount;
+import se.kth.iv1350.carInspection.controller.Controller;
 
 /**
  * 
