@@ -39,12 +39,17 @@ public class DatabaseManager {
 	
 	private void createInspections(){
 		inspectionList = new ArrayList<>();
-		inspectionList.add(new InspectionChecklist("Brakes", 105));
-		inspectionList.add(new InspectionChecklist("Engine", 65));
-		inspectionList.add(new InspectionChecklist("Lights", 25));
+		inspectionList.add(new InspectionChecklist("Brakes", 105, "Failed"));
+		inspectionList.add(new InspectionChecklist("Engine", 65, "Failed"));
+		inspectionList.add(new InspectionChecklist("Lights", 25, "Failed"));
 		/*for(int i = 0; i < inspectionList.size(); i++)
 		{
 			System.out.println(inspectionList.get(i));
 		}*/
 	}
+        
+        public void saveInspectionResult(String passedInspection, int checklistIndex){
+            inspectionList.get(checklistIndex).updateResult(passedInspection);
+            
+        }
 }

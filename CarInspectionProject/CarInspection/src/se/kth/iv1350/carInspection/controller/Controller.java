@@ -1,10 +1,10 @@
 package se.kth.iv1350.carInspection.controller;
 
-import se.kth.iv1350.carInspection.model.Amount;
-import se.kth.iv1350.carInspection.model.Inspection;
-import se.kth.iv1350.carInspection.integration.DatabaseManager;
-import se.kth.iv1350.carInspection.integration.Printer;
-import se.kth.iv1350.carInspection.integration.Garage;
+import java.util.List;
+import se.kth.iv1350.carInspection.model.*;
+import se.kth.iv1350.carInspection.integration.*;
+import se.kth.iv1350.carInspection.startup.*;
+
 
 /**
  * 
@@ -17,7 +17,9 @@ public class Controller {
 	
 	private Printer printer;
 	private DatabaseManager databaseManager;	
-	Garage garage = new Garage();
+	private Garage garage = new Garage();
+        private CreditCardReader creditCardReader;
+        private Inspection inspection;
 	
 	/**
 	 * Creates a new instance using the specified database manager.
@@ -26,9 +28,10 @@ public class Controller {
 	 * @param databaseManager The database manager used for all database calls.
 	 */
 	
-	public Controller(Printer printer, DatabaseManager databaseManager) {
+	public Controller(Printer printer, DatabaseManager databaseManager, CreditCardReader creditCardReader) {
 		this.printer = printer;
 		this.databaseManager = databaseManager;
+                this.creditCardReader = creditCardReader;
 		
 	}
 	
@@ -49,8 +52,24 @@ public class Controller {
 	 */
 	
 	public Amount enterRegNo(String regNo){
-		Inspection inspection = new Inspection(regNo, databaseManager, printer);
+		inspection = new Inspection(regNo, databaseManager, printer);
 		
 		return inspection.calculateCost();
+                
 	}
+        
+        public void cardPayment(Amount cost, int pin){
+            creditCardReader.cardTransaction(cost, pin);
+        }
+        
+        public List<InspectionChecklist> requestNextInspection(){
+        
+            List<InspectionChecklist> inspectionList = inspection.getInspections();
+            
+            return inspectionList;
+        }
+        
+        public void enterResult(String passedInspection, int checklistIndex){
+            inspection.inspectionResult.addInspectionResult(passedInspection, checklistIndex);
+        }
 }

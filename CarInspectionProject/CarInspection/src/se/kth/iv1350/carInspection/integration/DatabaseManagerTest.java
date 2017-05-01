@@ -33,10 +33,10 @@ public class DatabaseManagerTest {
 
    @Test
    public void testCorrectInspectionList() {
-	   List<InspectionChecklist> expResult = new ArrayList<>();
-       expResult.add(new InspectionChecklist("Brakes", 105));
-       expResult.add(new InspectionChecklist("Engine", 65));
-       expResult.add(new InspectionChecklist("Lights", 25));
+       List<InspectionChecklist> expResult = new ArrayList<>();
+       expResult.add(new InspectionChecklist("Brakes", 105, "Failed"));
+       expResult.add(new InspectionChecklist("Engine", 65, "Failed"));
+       expResult.add(new InspectionChecklist("Lights", 25, "Failed"));
 
        String regNo = "ABC123";
        List<InspectionChecklist> inspectionList = databaseManager.getInspections(regNo);

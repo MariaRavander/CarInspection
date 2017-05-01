@@ -1,7 +1,9 @@
 package se.kth.iv1350.carInspection.view;
 
+import java.util.List;
 import se.kth.iv1350.carInspection.model.Amount;
 import se.kth.iv1350.carInspection.controller.Controller;
+import se.kth.iv1350.carInspection.integration.*;
 
 /**
  * 
@@ -29,10 +31,28 @@ public class View {
      */
 	
 	public void start()	{
+            
+                String passedInspection = "passed";
+                int checklistIndex;
 		
 		String regNo = "ABC123";
 		controller.callInNextCustomer();
 		Amount cost = controller.enterRegNo(regNo);
-		System.out.println("The total cost is: " + cost.getAmount());
+		System.out.println("Screeen output: \nThe total cost is: " + cost.getAmount());
+                
+                int pin = 1234;
+                
+                controller.cardPayment(cost, pin);
+                
+                List <InspectionChecklist> inspections = controller.requestNextInspection();
+                
+                System.out.println("\nScreen output:");
+                
+                for(int i=0; i<inspections.size(); i++){
+                    System.out.print("Screen output: Inspection " + (i+1) + ": " + inspections.get(i).getVehiclePart() + "\n*Interacts* Inspector enters inspection result.\n");
+                    checklistIndex = i;
+                    controller.enterResult(passedInspection, checklistIndex);
+                }
+                    
 	}
 }

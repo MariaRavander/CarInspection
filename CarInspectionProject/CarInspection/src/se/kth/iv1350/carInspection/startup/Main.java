@@ -21,8 +21,8 @@ public class Main {
 	public static void main(String [] args){
 		DatabaseManager databaseManager = new DatabaseManager();
 		Printer printer = new Printer();
-		CreditCardReader creditCardReader = new CreditCardReader();
-		Controller controller = new Controller(printer, databaseManager);
+		CreditCardReader creditCardReader = new CreditCardReader(printer);
+		Controller controller = new Controller(printer, databaseManager, creditCardReader);
 		View view = new View(controller);
 		view.start();
 	}

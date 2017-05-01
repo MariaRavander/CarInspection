@@ -1,8 +1,6 @@
 package se.kth.iv1350.carInspection.model;
 
-import se.kth.iv1350.carInspection.integration.DatabaseManager;
-import se.kth.iv1350.carInspection.integration.Printer;
-import se.kth.iv1350.carInspection.integration.InspectionChecklist;
+import se.kth.iv1350.carInspection.integration.*;
 import java.util.*;
 
 /**
@@ -12,8 +10,9 @@ import java.util.*;
 public class Inspection {
 	
 	private String regNo;
-	private InspectionResult inspectionResult;
+	public InspectionResult inspectionResult;
 	private List<InspectionChecklist> inspectionList = new ArrayList<>();
+        private DatabaseManager databaseManager;
 	
 	
 /**
@@ -27,8 +26,10 @@ public class Inspection {
 	public Inspection(String regNo, DatabaseManager databaseManager, Printer printer){
 		this.regNo = regNo;
 		this.inspectionList = databaseManager.getInspections(regNo);
-		InspectionResult result = new InspectionResult(regNo, inspectionList);
+                this.databaseManager = databaseManager;
+		InspectionResult result = new InspectionResult(regNo, inspectionList, databaseManager, printer);
 		this.inspectionResult = result;
+                
 	}
 	
 
@@ -45,4 +46,8 @@ public class Inspection {
 		Amount cost = new Amount (totalCost);
 		return cost;
 	}
+        
+        public List<InspectionChecklist> getInspections(){
+            return inspectionList;
+        }
 }

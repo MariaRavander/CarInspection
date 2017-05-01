@@ -11,6 +11,7 @@ import se.kth.iv1350.carInspection.model.Amount;
 public class InspectionChecklist {
 	private String vehiclePart;
 	private int cost;
+        private String passedInspection;
 	
      /**
      * Creates new instance representing the specified control.
@@ -19,9 +20,10 @@ public class InspectionChecklist {
      * @param cost The cost of this control.
      */
 	
-	public InspectionChecklist (String vehiclePart, int cost){
+	public InspectionChecklist (String vehiclePart, int cost, String passedInspection){
 		this.vehiclePart = vehiclePart;
 		this.cost = cost;
+                this.passedInspection = passedInspection;
 	}
 	
 	/**
@@ -39,6 +41,15 @@ public class InspectionChecklist {
 	public int getCost(){
 		return cost;
 	}
+        
+        public String getPassedInspection(){
+		return passedInspection;
+	}
+        
+        public void updateResult(String passInspection){
+            this.passedInspection = passInspection;
+        }
+	
 	
 	  /**
 	    * @return True if the specified object is considered to represent the same inspection item as

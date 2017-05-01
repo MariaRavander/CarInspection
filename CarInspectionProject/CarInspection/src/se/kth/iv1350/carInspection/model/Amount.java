@@ -1,5 +1,7 @@
 package se.kth.iv1350.carInspection.model;
 
+import se.kth.iv1350.carInspection.integration.InspectionChecklist;
+
 /**
  * This class represents an amount.
  */
@@ -25,4 +27,17 @@ public class Amount {
 	public int getAmount(){
 		return value;
 	}
+        
+        @Override
+	   public boolean equals(Object other) {
+	       if (other == null) {
+	           return false;
+	       }
+	       if (!(other instanceof Amount)) {
+	           return false;
+	       }
+	       Amount otherInspItem = (Amount)other;
+               
+	       return otherInspItem.value == this.value;
+	   }
 }
