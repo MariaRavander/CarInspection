@@ -1,10 +1,8 @@
 /**
  * This test tests that inspection results can be saved in the inspectionResult object and 
  * that the inspectionResult can be converted to an String. To test that the printout
- * happends when all result i uppdated is hard because the only side effect is an
- * printout by system.out when it happends. But sense the handleInspectionResult is called 
- * twice with the last index and twice with the first index and the output only shows 
- * two printouts it seems to work although an @Test can't be made.
+ * happends when all the results has been uppdated is hard because the only side effect is an
+ * printout by system.out. 
  */
 
 package se.kth.iv1350.carInspection.model;
