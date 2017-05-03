@@ -64,24 +64,24 @@ public class View {
 
         int checklistIndex;
 
-		String regNo = "ABC123";
+        String regNo = "ABC123";
 
-		int pin = 1234;
+	int pin = 1234;
 
 		
 
-		controller.callInNextCustomer();
+	controller.callInNextCustomer();
 
-		Amount cost = controller.askForCostByRegNo(regNo);
+	Amount cost = controller.askForCostByRegNo(regNo);
+        System.out.println("\n*Interacts* Inspector enters registration number.");
 
-		System.out.println("Screeen output: \nThe total cost is: " + cost.getAmount());   
+	System.out.println("Screeen output: The total cost is: " + cost.getAmount());   
 
         controller.cardPayment(cost, pin);
 
         List <InspectionItem> inspections = controller.requestInspections();
 
-        System.out.println("\nScreen output:");
-
+        System.out.println();
         for(int i=0; i<inspections.size(); i++){
 
     		checklistIndex = i;
