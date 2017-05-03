@@ -1,79 +1,46 @@
 
 package se.kth.iv1350.carInspection.integration;
 
-import se.kth.iv1350.carInspection.integration.*;
-import se.kth.iv1350.carInspection.model.*;
-
-
-
-import org.junit.After;
-
-import org.junit.Before;
-
-import org.junit.Test;
 
 import static org.junit.Assert.*;
-
-import java.util.List;
-
-import java.util.ArrayList;
-
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 
 public class InspectionItemTest {
 
-     private DatabaseManager databaseManager;
-
-     private Printer printer;
-
-    
 
     @Before
 
-    public void setUp() {
-
-        databaseManager = new DatabaseManager();
-
-        printer = new Printer();
+    public void setUp() throws Exception {
 
     }
-
-       
-
-    
 
     @After
 
-    public void tearDown() {
-
-        databaseManager = null;
-
-        printer = null;
-
+    public void tearDown() throws Exception {
+	
     }
-
-
-
-    /**
-
-     * Test of calculateCost method, of class Inspection.
-
-     */
-
+        
     @Test
 
-    public void testCalculateCost() {
+    public void testUpdateInspectionResult() {
 
-        String regNo = "ABC123";
+        InspectionItem expResult = new InspectionItem("Brakes", 105, "InspectionResult");
+        InspectionItem testResult = new InspectionItem("Brakes", 105, "Failed");
+	testResult.updateResult("InspectionResult");
+	assertEquals("Inspection result was not updated", expResult, testResult);
 
-        Inspection instance = new Inspection(regNo, databaseManager, printer);
-
-        Amount expResult = new Amount(195);
-
-        Amount result = instance.calculateCost();
-
-        assertEquals("Calculated cost is incorrect", expResult, result);      
-
-    }    
-
+    }
+	
+    @Test
+ 
+    public void testUpdateNullResult() {
+        InspectionItem expResult = new InspectionItem("Brakes", 105, null);
+	InspectionItem testResult = new InspectionItem("Brakes", 105, "Failed");
+        testResult.updateResult(null);
+	assertEquals("Inspection result was null", expResult, testResult);
+        
+    }
 }
