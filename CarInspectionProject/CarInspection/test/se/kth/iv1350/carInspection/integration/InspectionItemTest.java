@@ -1,8 +1,8 @@
 
-
-package se.kth.iv1350.carInspection.model;
+package se.kth.iv1350.carInspection.integration;
 
 import se.kth.iv1350.carInspection.integration.*;
+import se.kth.iv1350.carInspection.model.*;
 
 
 
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 
 
-public class InspectionTest {
+public class InspectionItemTest {
 
      private DatabaseManager databaseManager;
 
